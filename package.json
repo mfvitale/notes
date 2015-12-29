@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/mfvitale/notes/issues"
   },
-  "homepage": "https://github.com/mfvitale/notes#readme"
+  "homepage": "https://github.com/mfvitale/notes#readme",
+  "dependencies": {
+    "hapi": "^11.1.4",
+    "hapi-mongodb": "^4.1.0",
+    "joi": "^7.1.0",
+    "minimist": "^1.2.0"
+  }
 }
