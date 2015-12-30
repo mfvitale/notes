@@ -8,7 +8,7 @@ function build (opts, cb) {
 
   cb = cb || noop
 
-  server.connection({ port: opts.port })
+  server.connection({ port: opts.port ,routes: { cors: true } })
   console.log(opts.url);
   server.register([{
     register: require('hapi-mongodb'),
