@@ -1,0 +1,38 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+.row.main{
+	margin-top: 10px;
+}
+.navbar-header.top{
+	width:100%;
+}
+.row.action{
+	float: right;
+  	margin-right: 5px;
+}
+.row.action .glyphicon{
+	color: white;
+    margin-top: 100%;
+}
+.note  em.glyphicon{
+	float: right;
+  	margin-top: -1.2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
