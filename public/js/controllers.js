@@ -1,30 +1,10 @@
 var notesControllers = angular.module('notesControllers', []);
 
 notesControllers.controller('NotesListCtrl', function ($scope, $http) {
-  /*$scope.notes = [
-    {'title': 'Nexus S',
-     'content': 'Fast just got faster with Nexus S. Fast just got faster with Nexus S Fast just got faster with Nexus S Fast just got faster with Nexus S Fast just got faster with Nexus S Fast just got faster with Nexus S',
- 	  "id": '1'},
-    {'title': 'Motorola XOOM™ with Wi-Fi',
-     'content': 'The Next, Next Generation tablet.',
-     'id': '2'},
-    {'title': 'MOTOROLA XOOM™',
-     'content': 'The Next, Next Generation tablet.',
-     'id': '3'},
-     {'title': 'Nexus S',
-     'content': 'Fast just got faster with Nexus S.',
-      "id": '4'},
-    {'title': 'Motorola XOOM™ with Wi-Fi',
-     'content': 'The Next, Next Generation tablet.',
-     'id': '5'},
-    {'title': 'MOTOROLA XOOM™',
-     'content': 'The Next, Next Generation tablet.',
-     'id': '6'}
-  ];*/
-  // Simple GET request example:
   $http({
     method: 'GET',
-    url: 'http://192.168.71.128:3000/notes'
+    url: 'http://192.168.71.128:3000/notes',
+    withCredentials: true
   }).then(function successCallback(response) {
       // this callback will be called asynchronously
       // when the response is available
@@ -48,4 +28,45 @@ notesControllers.controller('NoteViewCtrl', function ($scope, $http, $routeParam
       // or server returns response with an error status.
     });
 
+});
+
+notesControllers.controller('AuthCtrl', function ($scope, $http) {
+  /**/
+    $scope.username;
+    $scope.password;
+    $scope.islogged;
+    $scope.doLogin = function()
+    {
+      console.log("Calling login service for "+$scope.username + " " +$scope.password);
+      $http({
+        method: 'POST',
+        url: 'http://192.168.71.128:3000/login',
+        withCredentials: true,
+        data: { username: $scope.username,
+                password: $scope.password
+        }
+      }).then(function successCallback(response) {
+          // this callback will be called asynchronously
+          // when the response is available
+          console.log(response);
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
+    }
+    $scope.doLogout= function()
+    {
+      console.log("Calling logout service for "+$scope.username + " " +$scope.password);
+      $http({
+        method: 'GET',
+        url: 'http://192.168.71.128:3000/logout'
+      }).then(function successCallback(response) {
+          // this callback will be called asynchronously
+          // when the response is available
+          console.log(response);
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
+    }
 });

@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/mfvitale/notes#readme",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "hapi": "^11.1.4",
+    "hapi-auth-cookie": "^6.0.0",
     "hapi-mongodb": "^4.1.0",
     "joi": "^7.1.0",
     "minimist": "^1.2.0"
