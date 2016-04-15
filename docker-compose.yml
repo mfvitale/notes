@@ -1,0 +1,27 @@
+version: '2'
+services:
+  web:
+    container_name: notes-web
+    build:
+        context: .
+        dockerfile: Dockerfile_nginx
+    image: notes-web:1.0
+    ports:
+        - "80:80"
+    depends_on:
+        - rest-api
+  rest-api:
+    container_name: notes-api
+    image: notes-api:1.0
+    build:
+        context: .
+        dockerfile: Dockerfile_nodejs
+    ports:
+        - "3000:3000"
+    links:
+        - db:db
+  db:
+    container_name: notes-db
+    image: mongo
+    ports:
+       - "27017:27017"

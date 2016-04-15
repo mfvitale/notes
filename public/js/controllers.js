@@ -3,7 +3,7 @@ var notesControllers = angular.module('notesControllers', []);
 notesControllers.controller('NotesListCtrl', function ($scope, $http) {
   $http({
     method: 'GET',
-    url: 'http://192.168.71.128:3000/notes',
+    url: 'http://notes-nodejs:3000/notes',
     withCredentials: true
   }).then(function successCallback(response) {
       // this callback will be called asynchronously
@@ -18,7 +18,7 @@ notesControllers.controller('NotesListCtrl', function ($scope, $http) {
 notesControllers.controller('NoteViewCtrl', function ($scope, $http, $routeParams) {
   $http({
     method: 'GET',
-    url: 'http://192.168.71.128:3000/notes/'+ $routeParams.noteId
+    url: 'http://notes-nodejs:3000/notes/'+ $routeParams.noteId
   }).then(function successCallback(response) {
       // this callback will be called asynchronously
       // when the response is available
@@ -40,7 +40,7 @@ notesControllers.controller('AuthCtrl', function ($scope, $http) {
       console.log("Calling login service for "+$scope.username + " " +$scope.password);
       $http({
         method: 'POST',
-        url: 'http://192.168.71.128:3000/login',
+        url: 'http://notes-nodejs:3000/login',
         withCredentials: true,
         data: { username: $scope.username,
                 password: $scope.password
@@ -59,7 +59,7 @@ notesControllers.controller('AuthCtrl', function ($scope, $http) {
       console.log("Calling logout service for "+$scope.username + " " +$scope.password);
       $http({
         method: 'GET',
-        url: 'http://192.168.71.128:3000/logout'
+        url: 'http://notes-nodejs:3000/logout'
       }).then(function successCallback(response) {
           // this callback will be called asynchronously
           // when the response is available

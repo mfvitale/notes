@@ -66,7 +66,7 @@ if (require.main === module) {
     },
     default: {
       port: 3000,
-      mongoURL: "mongodb://localhost:27017/local"
+      mongoURL: "mongodb://db:27017/local"
     }
   }), (err, server) => {
     if (err) {
