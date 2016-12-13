@@ -1,2 +1,2 @@
-# Simple API for manage notes 
+# Simple API for notes management
 Developed with: nodejs + mongoDB
